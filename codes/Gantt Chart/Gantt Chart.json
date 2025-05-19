@@ -1,0 +1,304 @@
+[
+    {
+        "id": "599c67795817a013",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "35abfb84e632270f",
+        "type": "ui-theme",
+        "name": "Theme Name",
+        "colors": {
+            "surface": "#0a528a",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "10px",
+            "widgetGap": "12px",
+            "density": "default"
+        }
+    },
+    {
+        "id": "0dc674e59a53366f",
+        "type": "ui-base",
+        "name": "Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "cadd9479c9b4bc83",
+        "type": "ui-page",
+        "name": "Gantt Chart",
+        "ui": "0dc674e59a53366f",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "35abfb84e632270f",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "3bfe9ad3612a6859",
+        "type": "ui-group",
+        "name": "Group Name",
+        "page": "cadd9479c9b4bc83",
+        "width": "12",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "5cb8d945f44a3ae9",
+        "type": "MSSQL-CN",
+        "tdsVersion": "7_4",
+        "name": "",
+        "server": "127.0.0.1",
+        "port": "1433",
+        "encyption": false,
+        "trustServerCertificate": true,
+        "database": "Testing",
+        "useUTC": true,
+        "connectTimeout": "15000",
+        "requestTimeout": "15000",
+        "cancelTimeout": "5000",
+        "pool": "5",
+        "parseJSON": false,
+        "enableArithAbort": true,
+        "readOnlyIntent": false
+    },
+    {
+        "id": "2f348ad88b1f319c",
+        "type": "ui-markdown",
+        "z": "599c67795817a013",
+        "group": "3bfe9ad3612a6859",
+        "name": "",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "content": "```mermaid\ngantt\n    {{ msg?.payload }}\n```",
+        "className": "",
+        "x": 970,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9dc2c7e6596af3a",
+        "type": "ui-button",
+        "z": "599c67795817a013",
+        "group": "3bfe9ad3612a6859",
+        "name": "Show",
+        "label": "Show Gantt Chart",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "9bf2594674db4d1d"
+            ]
+        ]
+    },
+    {
+        "id": "287e676fb7b9edb7",
+        "type": "ui-button",
+        "z": "599c67795817a013",
+        "group": "3bfe9ad3612a6859",
+        "name": "Clear",
+        "label": "ClearGantt Chart",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "5160961a145ad3ab"
+            ]
+        ]
+    },
+    {
+        "id": "9bf2594674db4d1d",
+        "type": "MSSQL",
+        "z": "599c67795817a013",
+        "mssqlCN": "5cb8d945f44a3ae9",
+        "name": "",
+        "outField": "payload",
+        "returnType": 0,
+        "throwErrors": 1,
+        "query": "Select O.OrderNo, FORMAT(O.StartTime, 'yyyy-MM-dd HH:mm') As StartTime, \r\nFORMAT(O.EndTime, 'yyyy-MM-dd HH:mm') As EndTime,R.Name\r\nFROM UserData.Orders O\r\nINNER JOIN UserData.Resources R ON O.Resource=R.ResourcesId\r\nWHERE O.DatasetId=15\r\nOrder by R.DisplayOrder, O.StartTime",
+        "modeOpt": "queryMode",
+        "modeOptType": "query",
+        "queryOpt": "payload",
+        "queryOptType": "editor",
+        "paramsOpt": "queryParams",
+        "paramsOptType": "none",
+        "rows": "rows",
+        "rowsType": "msg",
+        "parseMustache": true,
+        "params": [],
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "bf2c6e3f91535123"
+            ]
+        ]
+    },
+    {
+        "id": "bf2c6e3f91535123",
+        "type": "function",
+        "z": "599c67795817a013",
+        "name": "function 1",
+        "func": "let data = msg.payload;\nlet groupedData = {};\n\ndata.forEach(item => {\n    let name = item.Name;\n\n    let startTime = new Date(item.StartTime).getTime();\n    let endTime = new Date(item.EndTime).getTime();\n    let duration = (endTime - startTime) / (1000 * 60 * 60); // Konversi ms ke jam\n    duration = `${duration}h`\n\n    item.Duration = duration;\n\n    if (!groupedData[name]) {\n        groupedData[name] = [];\n    }\n    groupedData[name].push(item);\n});\n\nlet result = Object.keys(groupedData).map(name => {\n    return {\n        Name: name,\n        Orders: groupedData[name]\n    };\n});\n\nmsg.payload = result;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "040b871f3ab72668"
+            ]
+        ]
+    },
+    {
+        "id": "040b871f3ab72668",
+        "type": "function",
+        "z": "599c67795817a013",
+        "name": "function 2",
+        "func": "var gantt;\nvar i;\nvar x;\nvar no = 0;\n\ngantt = \"title Gantt Chart\\n\" +\n    \"dateFormat HH:mm\\n\" +\n    \"axisFormat %Y-%m-%d %H:%M\\n\"\n\nfor (i = 0; i < msg.payload.length; i++) {\n    gantt += \"section \" + msg.payload[i].Name + \"\\n\";\n    for (x = 0; x < msg.payload[i].Orders.length; x++) { // Gunakan msg.payload[i] di sini\n        no = no + 1;\n        gantt += msg.payload[i].Orders[x].OrderNo + \" :\" + \"a\" + no + \",\" + msg.payload[i].Orders[x].StartTime + \", \" + msg.payload[i].Orders[x].Duration + \"\\n\";\n    }\n}\n\nmsg.payload = gantt;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 180,
+        "wires": [
+            [
+                "2f348ad88b1f319c"
+            ]
+        ]
+    },
+    {
+        "id": "5160961a145ad3ab",
+        "type": "change",
+        "z": "599c67795817a013",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "bf2c6e3f91535123"
+            ]
+        ]
+    }
+]
